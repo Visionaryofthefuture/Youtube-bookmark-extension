@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Bookmarks</title>
+  <script defer src="popup.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="w-80 p-4 bg-white text-gray-800">
+
+  <h1 class="text-xl font-semibold mb-4 text-center">🎬 Video Bookmarks</h1>
+
+  <!-- Call the function correctly -->
+  <button id="bookmark-btn" class="w-full bg-blue-600 text-white py-2 rounded-lg mb-4 hover:bg-blue-700">
+    + Bookmark Current Time
+  </button>
+
+  <div id="bookmark-list" class="space-y-3 max-h-80 overflow-y-auto">
+    <!-- Bookmarks will be injected here -->
+  </div>
+
+</body>
+
+
+</html>
