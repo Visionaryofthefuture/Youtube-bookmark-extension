@@ -21,14 +21,23 @@ ui.innerHTML = `
 `;
 document.body.appendChild(ui);
 
-// 🧽 Hide bookmarks section
+function updateui(){
+if(document.fullscreenElement){
+  document.getElementById("yt-bookmark-ui").style.display = "none";
+}
+else{
+  document.getElementById("yt-bookmark-ui").style.display = "block";
+}
+}
+
+document.addEventListener("fullscreenchange", ()=> {updateui()})
+
 document.getElementById("bookmark-remove").addEventListener("click", () => {
   const container = document.getElementById("bookmark-list");
   container.innerHTML = "";
   container.style.display = "none";
 });
 
-// 📌 Add a bookmark
 document.getElementById("bookmark-current").addEventListener("click", () => {
   try {
     const video = document.querySelector("video");
@@ -63,7 +72,6 @@ document.getElementById("bookmark-current").addEventListener("click", () => {
   }
 });
 
-// 📂 View bookmarks
 document.getElementById("bookmark-view").addEventListener("click", () => {
   const container = document.getElementById("bookmark-list");
   container.innerHTML = "";
@@ -98,12 +106,12 @@ document.getElementById("bookmark-view").addEventListener("click", () => {
   btn.style.marginLeft = "10px";
   btn.style.fontSize = "12px";
 
-  // ✅ Attach time to button click
+
   btn.addEventListener("click", () => {
     const video = document.querySelector("video");
     if (video) {
       video.currentTime = bookmark.time;
-      video.play(); // Optional: auto play
+      video.play(); 
     }
   });
 
